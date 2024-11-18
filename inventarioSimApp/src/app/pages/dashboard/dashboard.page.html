@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()"> Cerrar Sesión </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="userRole === 'admin'">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>SIM Cards (Administrador)</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngIf="simCards.length > 0; else noSimCards">
+          <ion-item
+            *ngFor="let sim of simCards"
+            (click)="selectSimCard(sim)"
+            [class.selected]="selectedSim === sim"
+          >
+            <ion-label>
+              <h2>ICCID: {{ sim.iccid }}</h2>
+              <p>Operador: {{ sim.operador }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <ng-template #noSimCards>
+          <p>No hay SIM cards disponibles para mostrar.</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="userRole === 'user'">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Visualización de SIM Cards</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list *ngIf="simCards.length > 0; else noUserSimCards">
+          <ion-item>
+            <ion-label>ICCID</ion-label>
+            <ion-label>Operador</ion-label>
+          </ion-item>
+          <ion-item *ngFor="let sim of simCards">
+            <ion-label>{{ sim.iccid }}</ion-label>
+            <ion-label>{{ sim.operador }}</ion-label>
+          </ion-item>
+        </ion-list>
+        <ng-template #noUserSimCards>
+          <p>No hay SIM cards disponibles para mostrar.</p>
+        </ng-template>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-footer *ngIf="userRole === 'admin'">
+    <ion-button expand="full" color="success" (click)="goToAddSimCard()"
+      >Agregar SIM Card</ion-button
+    >
+    <ion-button
+      expand="full"
+      color="primary"
+      [disabled]="!selectedSim"
+      (click)="editSimCard()"
+      >Editar</ion-button
+    >
+    <ion-button
+      expand="full"
+      color="danger"
+      [disabled]="!selectedSim"
+      (click)="deleteSimCard()"
+      >Eliminar</ion-button
+    >
+  </ion-footer>
+</ion-content>

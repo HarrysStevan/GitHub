@@ -1,0 +1,13 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "InventarioSimApp",
+	"webDir": "www",
+	"server": {
+		"androidScheme": "https"
+	},
+	"hooks": {
+		"build": {
+			"android": "node clean-flatdir.js"
+		}
+	}
+}

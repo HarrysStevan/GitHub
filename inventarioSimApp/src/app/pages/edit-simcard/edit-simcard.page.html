@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar SIM Card</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="updateSimCard()">
+    <ion-item>
+      <ion-label position="floating">ICCID</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="sim.iccid"
+        name="iccid"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Operador</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="sim.operador"
+        name="operador"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Guardar Cambios</ion-button>
+  </form>
+  <div class="dashboard-button">
+    <ion-button expand="block" color="light" routerLink="/dashboard/admin"
+      >Volver al Dashboard</ion-button
+    >
+  </div>
+</ion-content>

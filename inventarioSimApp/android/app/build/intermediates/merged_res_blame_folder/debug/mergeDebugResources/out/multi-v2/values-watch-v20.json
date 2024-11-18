@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "io.ionic.starter.app-mergeDebugResources-24:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Harrys Stevan\\.gradle\\caches\\transforms-4\\523e6cb4aa80ca6b29f9ea4b1eb23e06\\transformed\\appcompat-1.6.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}
